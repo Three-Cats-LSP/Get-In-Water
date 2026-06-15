@@ -40,6 +40,13 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+      - name: Generate Android launcher icons
+        run: |
+          mkdir -p assets
+          cp icon-512v2.png assets/icon-only.png
+          cp icon-512v2.png assets/icon-foreground.png
+          npx --yes @capacitor/assets generate --android
+
       - name: Prepare www folder
         run: |
           mkdir -p www
