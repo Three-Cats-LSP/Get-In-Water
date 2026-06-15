@@ -46,6 +46,7 @@ jobs:
           cp index.html www/
           cp manifest.json www/
           cp capacitor-bridge.js www/
+          cp sw.js www/
           cp icon-192.png www/
           cp icon-512.png www/
 
@@ -76,6 +77,7 @@ jobs:
           git add "Android Apk/Get-In-Water.apk"
           git diff --cached --quiet && echo "No APK changes" && exit 0
           git commit -m "build: update Get-In-Water.apk [skip ci]"
+          git reset --hard HEAD
           git pull --rebase origin main
           git push
 
