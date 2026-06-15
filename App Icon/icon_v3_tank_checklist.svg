@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="40 0 120 300">
+
+  <!-- valve stem -->
+  <rect x="94" y="12" width="12" height="70" rx="6" fill="#030c18" stroke="#00d9ff" stroke-width="2.2"/>
+  <rect x="78" y="26" width="44" height="14" rx="7" fill="#030c18" stroke="#00d9ff" stroke-width="2.2"/>
+  <rect x="94" y="12" width="12" height="16" rx="6" fill="#030c18" stroke="#00d9ff" stroke-width="2.2"/>
+
+  <!-- tank body -->
+  <path d="M 55 80 A 45 26 0 0 1 145 80 L 145 270 A 45 26 0 0 1 55 270 Z"
+    fill="#071828" stroke="#00d9ff" stroke-width="2.4"/>
+
+  <!-- row 1 checked -->
+  <rect x="63" y="96" width="22" height="22" rx="5" fill="#030c18" stroke="#00d9ff" stroke-width="1.8"/>
+  <path d="M67 107 L72 112 L81 97" stroke="#26d07c" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  <line x1="92" y1="107" x2="136" y2="107" stroke="#d8eef8" stroke-width="2" stroke-linecap="round" opacity="0.6"/>
+
+  <!-- row 2 checked -->
+  <rect x="63" y="128" width="22" height="22" rx="5" fill="#030c18" stroke="#00d9ff" stroke-width="1.8"/>
+  <path d="M67 139 L72 144 L81 129" stroke="#26d07c" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+  <line x1="92" y1="139" x2="136" y2="139" stroke="#d8eef8" stroke-width="2" stroke-linecap="round" opacity="0.6"/>
+
+  <!-- row 3 -->
+  <rect x="63" y="160" width="22" height="22" rx="5" fill="#030c18" stroke="#00d9ff" stroke-width="1.8" opacity="0.55"/>
+  <line x1="92" y1="171" x2="136" y2="171" stroke="#d8eef8" stroke-width="2" stroke-linecap="round" opacity="0.28"/>
+
+  <!-- row 4 -->
+  <rect x="63" y="192" width="22" height="22" rx="5" fill="#030c18" stroke="#00d9ff" stroke-width="1.8" opacity="0.55"/>
+  <line x1="92" y1="203" x2="136" y2="203" stroke="#d8eef8" stroke-width="2" stroke-linecap="round" opacity="0.28"/>
+
+  <!-- row 5 -->
+  <rect x="63" y="224" width="22" height="22" rx="5" fill="#030c18" stroke="#00d9ff" stroke-width="1.8" opacity="0.55"/>
+  <line x1="92" y1="235" x2="136" y2="235" stroke="#d8eef8" stroke-width="2" stroke-linecap="round" opacity="0.28"/>
+
+  <!-- row 6 -->
+  <rect x="63" y="256" width="22" height="22" rx="5" fill="#030c18" stroke="#00d9ff" stroke-width="1.8" opacity="0.55"/>
+  <line x1="92" y1="267" x2="136" y2="267" stroke="#d8eef8" stroke-width="2" stroke-linecap="round" opacity="0.28"/>
+</svg>
