@@ -1,0 +1,6 @@
+# GitHub Pages config — serves repo root as static site
+include:
+  - manifest.json
+  - icon-192.png
+  - icon-512.png
+  - capacitor-bridge.js

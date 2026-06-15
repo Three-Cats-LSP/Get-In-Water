@@ -1,0 +1,14 @@
+{
+  "appId": "com.threecats.lsp.getinwater",
+  "appName": "Get In Water",
+  "webDir": "www",
+  "android": {
+    "buildOptions": {
+      "keystorePath": null,
+      "keystoreAlias": null
+    }
+  },
+  "server": {
+    "androidScheme": "https"
+  }
+}
