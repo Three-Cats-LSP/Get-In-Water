@@ -11,6 +11,10 @@ on:
 permissions:
   contents: write
 
+concurrency:
+  group: build-apk-get-in-water
+  cancel-in-progress: true
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -72,6 +76,7 @@ jobs:
           git add "Android Apk/Get-In-Water.apk"
           git diff --cached --quiet && echo "No APK changes" && exit 0
           git commit -m "build: update Get-In-Water.apk [skip ci]"
+          git pull --rebase origin main
           git push
 
       - name: Notify homepage to sync APK
