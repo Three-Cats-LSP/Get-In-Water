@@ -42,7 +42,8 @@ jobs:
 
       - name: Generate Android launcher icons
         run: |
-          # Use ImageMagick (pre-installed on ubuntu-latest) to resize icon-512v2.png
+          sudo apt-get install -y --no-install-recommends imagemagick
+          # Use ImageMagick to resize icon-512v2.png
           # into all required mipmap densities for ic_launcher and ic_launcher_foreground.
           # Foreground uses the full icon; background color is set via values/ic_launcher_background.xml.
           declare -A sizes=(
