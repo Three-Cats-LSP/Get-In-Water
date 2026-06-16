@@ -54,9 +54,9 @@ All apps live on the [Diver's Toolkit hub](https://threecats-lsp.com).
 - Pin a trip to the top of the list
 
 ### Export & backup
-- **TXT** — full checklist or remaining unchecked items only
+- **TXT** — full checklist or remaining unchecked items only (trip or master gear)
 - **PDF** — formatted export with Unicode/Cyrillic support (DejaVu Sans)
-- **JSON backup** — export all trips, master gear, and templates; import on a new device
+- **JSON backup** — under **Settings → About**; export all trips, master gear, and templates, or import on a new device
 
 ### App experience
 - LSP D-Planner design system — dark/light theme, card layout, bubble background
@@ -94,13 +94,17 @@ Built with Capacitor. APK is updated automatically by GitHub Actions on each rel
 
 ## UI overview
 
+Open **?** from the home screen for settings. Two tabs:
+
+| Tab | Description |
+|-----|-------------|
+| **Templates** | Master gear list card, starter templates, template editor, add items to master gear |
+| **About** | App info, JSON backup export/import, Diver's Toolkit links |
+
 | Screen | Description |
 |--------|-------------|
 | **Home** | Trip list with progress, search/sort/filter, **+** new trip, **?** settings |
 | **Trip** | Checklist by category and packing phase; critical banner; qty controls; **+** add card; TXT/PDF export; **⋮** menu |
-| **? → Templates** | Master gear list, starter templates, template editor, add-to-master |
-| **? → Data** | JSON backup export and import |
-| **? → About** | App info and Diver's Toolkit links |
 
 ---
 
