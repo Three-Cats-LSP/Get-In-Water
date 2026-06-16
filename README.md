@@ -58,12 +58,18 @@ All apps live on the [Diver's Toolkit hub](https://threecats-lsp.com).
 ### Web / PWA
 Open https://threecats-lsp.com/get-in-water/ in any modern browser. Install as a PWA for home-screen access and offline packing lists.
 
+**Installation:**
+1. Open https://threecats-lsp.com/get-in-water/ on your phone, tablet, or computer
+2. **Safari (iPhone / iPad):** Tap **Share** (square with arrow) → **Add to Home Screen** → **Add**
+3. **Chrome (Android):** Tap **⋮** menu → **Install app** or **Add to Home screen** → confirm
+4. **Chrome (desktop):** Click the install icon in the address bar, or **⋮** → **Install Get In Water**
+
 ### Android APK
 📲 **[Download APK](https://threecats-lsp.com/get-in-water/download.html)**
 
 Built with Capacitor. APK is updated automatically by GitHub Actions on each release.
 
-**Installation:**
+**APK installation:**
 1. Open the download page on your Android device
 2. Tap **Download APK**
 3. Open the downloaded file
