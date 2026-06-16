@@ -30,6 +30,7 @@ All apps live on the [Diver's Toolkit hub](https://threecats-lsp.com).
 - **Starter templates** — Recreational, Underwater photographer, Technical diver (built-in, resettable)
 - Create, copy, edit, and delete custom templates
 - Add template items to the master gear list with one tap
+- **Export** master gear as TXT or PDF from the gear editor
 
 ### Trip checklists
 - Create trips from the master gear list (checks start cleared)
@@ -41,21 +42,25 @@ All apps live on the [Diver's Toolkit hub](https://threecats-lsp.com).
 - **Item notes** — nitrox mix, dry bag #, etc.
 - **Bag grouping** — carry-on, checked bag, camera case, boat bin
 - Per-trip categories and trip-only items without changing the master list
-- **Unpack mode** — reverse checklist after the trip
+- **Unpack mode** — reverse checklist after the trip (toggle on trip subbar)
+- **Return mode** — separate homeward packing checklist when heading home (toggle on trip subbar)
 - **Buddy copy** — share a subset of categories with checks cleared
 - Duplicate, pin, archive, and delete trips
-- **Celebration overlay** when everything is packed
+- **Celebration overlay** when everything is packed (outbound or return)
 
 ### Home screen
 - Search trips, tags, locations, and gear names
 - Sort by newest, date, progress, or name
-- Hide completed trips; show archived trips
+- **Filter menu** — hide completed trips; show archived trips
 - Countdown to trip start date
 - Pin a trip to the top of the list
 
 ### Export & backup
-- **TXT** — full checklist or remaining unchecked items only (trip or master gear)
-- **PDF** — formatted export with Unicode/Cyrillic support (DejaVu Sans)
+- **Export menu** on each trip and in the master gear editor — one dropdown, all formats:
+  - Full checklist (TXT / PDF)
+  - Remaining items (TXT / PDF)
+  - By bag (TXT / PDF) — grouped by carry-on, checked, camera, boat, etc.
+- **Share remaining list** — quick share from the trip ⋮ menu
 - **JSON backup** — under **Settings → About**; export all trips, master gear, and templates, or import on a new device
 
 ### App experience
@@ -103,8 +108,8 @@ Open **?** from the home screen for settings. Two tabs:
 
 | Screen | Description |
 |--------|-------------|
-| **Home** | Trip list with progress, search/sort/filter, **+** new trip, **?** settings |
-| **Trip** | Checklist by category and packing phase; critical banner; qty controls; **+** add card; TXT/PDF export; **⋮** menu |
+| **Home** | Trip list with progress, search/sort, **+** new trip, filter menu (hide completed / show archived), **?** settings |
+| **Trip** | Phase tabs; **Unpack** / **Return** toggles; checklist by category; critical banner; qty controls; **+** add card; **Export** dropdown (TXT/PDF); **⋮** menu (details, pin, buddy copy, share, reset, archive, delete) |
 
 ---
 
