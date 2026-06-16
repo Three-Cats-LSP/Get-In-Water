@@ -3,4 +3,6 @@ include:
   - manifest.json
   - icon-192.png
   - icon-512.png
+  - icon-192-light.png
+  - icon-512-light.png
   - capacitor-bridge.js

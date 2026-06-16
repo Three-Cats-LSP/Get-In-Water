@@ -80,6 +80,8 @@ jobs:
           cp sw.js www/
           cp icon-192v2.png www/icon-192.png
           cp icon-512v2.png www/icon-512.png
+          cp icon-192-light.png www/icon-192-light.png
+          cp icon-512-light.png www/icon-512-light.png
 
       - name: Capacitor sync
         run: npx cap sync android

@@ -2,11 +2,11 @@
 
 Dive trip packing checklist — a companion app in the [Three Cats LSP](https://threecats-lsp.com) **Diver's Toolkit**.
 
-Pack your gear for dive trips: maintain a **master gear template**, create **per-trip checklists**, tick items off as you pack, and export **TXT** or **PDF** for printing. Works alongside **[LSP D-Planner](https://threecats-lsp.com/d-planner/)** — plan the dive, then pack for it.
+Maintain a **master gear list**, create **per-trip checklists**, tick items off as you pack, and export **TXT** or **PDF** for printing. Works alongside **[LSP D-Planner](https://threecats-lsp.com/d-planner/)** — plan the dive, then pack for it.
 
 🌐 **Web app**: https://threecats-lsp.com/get-in-water/
 
-**Current version: 1.2.0**
+**Current version: 1.3.0**
 
 ---
 
@@ -24,31 +24,45 @@ All apps live on the [Diver's Toolkit hub](https://threecats-lsp.com).
 
 ## Features
 
-### Master gear template
-- Editable category cards (diving gear, camera, travel docs, personal, and more)
-- Rename, reorder, add, remove, and duplicate categories
-- Add, rename, and remove items within each card
-- Collapsible cards with per-category **+** to add items
-- Export master template as TXT or PDF
+### Master gear list & templates
+- **Master gear list** — your default packing list; new trips copy from it
+- Edit under **Settings → Templates** (master gear card or full editor)
+- **Starter templates** — Recreational, Underwater photographer, Technical diver (built-in, resettable)
+- Create, copy, edit, and delete custom templates
+- Add template items to the master gear list with one tap
 
 ### Trip checklists
-- Create trips from the master template (checks start cleared)
-- **Multi-day trips** — start/finish dates, or **One day trip** for single-day outings
-- Per-trip category cards: rename, reorder, duplicate, add, and remove
-- Trip-only items without changing the master template
-- Duplicate and delete trips from the home screen
-- Progress bar — packed count and percentage
-- Reset all checks or delete a trip from the **⋮** menu
+- Create trips from the master gear list (checks start cleared)
+- **Multi-day trips** — start/finish dates, or **One day trip**
+- **Trip location** and **#tags** on the home screen and trip header
+- **Pre-dive / post-dive phases** — filter items by when to pack (night before, at dock, before first dive, after last dive)
+- **Critical items** banner — must-not-forget gear highlighted at the top
+- **Quantities** — track packed count vs total (e.g. 2× spare O-ring)
+- **Item notes** — nitrox mix, dry bag #, etc.
+- **Bag grouping** — carry-on, checked bag, camera case, boat bin
+- Per-trip categories and trip-only items without changing the master list
+- **Unpack mode** — reverse checklist after the trip
+- **Buddy copy** — share a subset of categories with checks cleared
+- Duplicate, pin, archive, and delete trips
+- **Celebration overlay** when everything is packed
 
-### Export
+### Home screen
+- Search trips, tags, locations, and gear names
+- Sort by newest, date, progress, or name
+- Hide completed trips; show archived trips
+- Countdown to trip start date
+- Pin a trip to the top of the list
+
+### Export & backup
 - **TXT** — full checklist or remaining unchecked items only
-- **PDF** — formatted export with Unicode/Cyrillic support (DejaVu Sans), full or remaining
-- Trip exports include date range in the header when set
+- **PDF** — formatted export with Unicode/Cyrillic support (DejaVu Sans)
+- **JSON backup** — export all trips, master gear, and templates; import on a new device
 
 ### App experience
 - LSP D-Planner design system — dark/light theme, card layout, bubble background
-- **PWA** — install from the browser (Add to Home Screen / Install prompt on Android; Share → Add to Home Screen on iOS)
-- Offline use after install via service worker
+- Theme-aware app icon (light/dark)
+- **PWA** — install from the browser; offline use via service worker
+- **Android home-screen widget** — pinned trip packing progress at a glance
 - All data stored locally in `localStorage` (`giw_v1`) — no account, no server
 
 ---
@@ -82,16 +96,11 @@ Built with Capacitor. APK is updated automatically by GitHub Actions on each rel
 
 | Screen | Description |
 |--------|-------------|
-| **Home** | Trip list with progress, **+** to create a trip, **?** for settings |
-| **Trip** | Checklist by category; **+** add card, TXT/PDF export, **⋮** menu (rename, remaining export, reset, delete) |
-| **? → Gear template** | Edit the master gear template used for new trips |
-| **? → About** | App info and links |
-
-### Category card header
-```
-[Card name] [↑][↓][copy][×]                    [+][▼]
-```
-Move, duplicate, and remove sit beside the name; add item and collapse stay on the right.
+| **Home** | Trip list with progress, search/sort/filter, **+** new trip, **?** settings |
+| **Trip** | Checklist by category and packing phase; critical banner; qty controls; **+** add card; TXT/PDF export; **⋮** menu |
+| **? → Templates** | Master gear list, starter templates, template editor, add-to-master |
+| **? → Data** | JSON backup export and import |
+| **? → About** | App info and Diver's Toolkit links |
 
 ---
 
@@ -104,8 +113,9 @@ Move, duplicate, and remove sit beside the name; add item and collapse stay on t
 | `sw.js` | Service worker — offline caching |
 | `capacitor-bridge.js` | Android file export bridge |
 | `download.html` | APK download page |
-| `icon-192.png`, `icon-512.png` | App icons |
-| `android/` | Capacitor Android project |
+| `icon-192.png`, `icon-512.png` | App icons (dark theme) |
+| `icon-192-light.png`, `icon-512-light.png` | App icons (light theme) |
+| `android/` | Capacitor Android project (incl. packing widget) |
 | `Android Apk/` | Latest built APK (auto-updated by CI) |
 
 ---
@@ -115,7 +125,7 @@ Move, duplicate, and remove sit beside the name; add item and collapse stay on t
 ```bash
 npm ci
 mkdir -p www
-cp index.html manifest.json sw.js capacitor-bridge.js icon-192.png icon-512.png www/
+cp index.html manifest.json sw.js capacitor-bridge.js icon-192.png icon-512.png icon-192-light.png icon-512-light.png www/
 npx cap sync android
 cd android && ./gradlew assembleDebug
 ```

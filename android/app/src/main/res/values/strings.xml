@@ -2,6 +2,8 @@
 <resources>
     <string name="app_name">Get In Water</string>
     <string name="title_activity_main">Get In Water</string>
+    <string name="widget_name">Packing progress</string>
+    <string name="widget_description">Shows remaining items for your pinned trip</string>
     <string name="package_name">com.threecats.lsp.getinwater</string>
     <string name="custom_url_scheme">com.threecats.lsp.getinwater</string>
 </resources>

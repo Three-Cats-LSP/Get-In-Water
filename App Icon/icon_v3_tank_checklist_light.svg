@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 192 192">
+  <rect width="192" height="192" rx="28" fill="#f5f7f9"/>
+  <g transform="translate(96 96) scale(0.52) translate(-100 -150)">
+    <!-- valve stem -->
+    <rect x="94" y="12" width="12" height="70" rx="6" fill="#eff3f8" stroke="#0055aa" stroke-width="2.2"/>
+    <rect x="78" y="26" width="44" height="14" rx="7" fill="#eff3f8" stroke="#0055aa" stroke-width="2.2"/>
+    <rect x="94" y="12" width="12" height="16" rx="6" fill="#eff3f8" stroke="#0055aa" stroke-width="2.2"/>
+
+    <!-- tank body -->
+    <path d="M 55 80 A 45 26 0 0 1 145 80 L 145 270 A 45 26 0 0 1 55 270 Z"
+      fill="#e8ecf1" stroke="#0055aa" stroke-width="2.4"/>
+
+    <!-- row 1 checked -->
+    <rect x="63" y="96" width="22" height="22" rx="5" fill="#ffffff" stroke="#0055aa" stroke-width="1.8"/>
+    <path d="M67 107 L72 112 L81 97" stroke="#1a9e55" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+    <line x1="92" y1="107" x2="136" y2="107" stroke="#1a1a1a" stroke-width="2" stroke-linecap="round" opacity="0.45"/>
+
+    <!-- row 2 checked -->
+    <rect x="63" y="128" width="22" height="22" rx="5" fill="#ffffff" stroke="#0055aa" stroke-width="1.8"/>
+    <path d="M67 139 L72 144 L81 129" stroke="#1a9e55" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+    <line x1="92" y1="139" x2="136" y2="139" stroke="#1a1a1a" stroke-width="2" stroke-linecap="round" opacity="0.45"/>
+
+    <!-- row 3 -->
+    <rect x="63" y="160" width="22" height="22" rx="5" fill="#ffffff" stroke="#0055aa" stroke-width="1.8" opacity="0.75"/>
+    <line x1="92" y1="171" x2="136" y2="171" stroke="#1a1a1a" stroke-width="2" stroke-linecap="round" opacity="0.22"/>
+
+    <!-- row 4 -->
+    <rect x="63" y="192" width="22" height="22" rx="5" fill="#ffffff" stroke="#0055aa" stroke-width="1.8" opacity="0.75"/>
+    <line x1="92" y1="203" x2="136" y2="203" stroke="#1a1a1a" stroke-width="2" stroke-linecap="round" opacity="0.22"/>
+
+    <!-- row 5 -->
+    <rect x="63" y="224" width="22" height="22" rx="5" fill="#ffffff" stroke="#0055aa" stroke-width="1.8" opacity="0.75"/>
+    <line x1="92" y1="235" x2="136" y2="235" stroke="#1a1a1a" stroke-width="2" stroke-linecap="round" opacity="0.22"/>
+
+    <!-- row 6 -->
+    <rect x="63" y="256" width="22" height="22" rx="5" fill="#ffffff" stroke="#0055aa" stroke-width="1.8" opacity="0.75"/>
+    <line x1="92" y1="267" x2="136" y2="267" stroke="#1a1a1a" stroke-width="2" stroke-linecap="round" opacity="0.22"/>
+  </g>
+</svg>
