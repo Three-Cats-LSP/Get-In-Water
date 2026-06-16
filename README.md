@@ -25,7 +25,7 @@ All apps live on the [Diver's Toolkit hub](https://threecats-lsp.com).
 ## Features
 
 ### Master gear list & templates
-- **Master gear list** — your default packing list; new trips copy from it
+- **Master gear list** — your default packing list; new trips can start from it or any saved template
 - Edit under **Settings → Templates** (master gear card or full editor)
 - **Starter templates** — Recreational, Underwater photographer, Technical diver (built-in, resettable)
 - Create, copy, edit, and delete custom templates
@@ -33,7 +33,7 @@ All apps live on the [Diver's Toolkit hub](https://threecats-lsp.com).
 - **Export** master gear as TXT or PDF from the gear editor
 
 ### Trip checklists
-- Create trips from the master gear list (checks start cleared)
+- **New trip** — pick **Master gear list** or any template from Settings → Templates (checks start cleared)
 - **Multi-day trips** — start/finish dates, or **One day trip**
 - **Trip location** and **#tags** on the home screen and trip header
 - **Pre-dive / post-dive phases** — filter items by when to pack (night before, at dock, before first dive, after last dive)
@@ -108,7 +108,7 @@ Open **?** from the home screen for settings. Two tabs:
 
 | Screen | Description |
 |--------|-------------|
-| **Home** | Trip list with progress, search/sort, **+** new trip, filter menu (hide completed / show archived), **?** settings |
+| **Home** | Trip list with progress, search/sort, **+** new trip (name, template, dates, tags), filter menu (hide completed / show archived), **?** settings |
 | **Trip** | Phase tabs; **Unpack** / **Return** toggles; checklist by category; critical banner; qty controls; **+** add card; **Export** dropdown (TXT/PDF); **⋮** menu (details, pin, buddy copy, share, reset, archive, delete) |
 
 ---
