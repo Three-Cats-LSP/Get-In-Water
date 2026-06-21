@@ -3,6 +3,7 @@ package com.threecats.lsp.getinwater;
 import android.app.PendingIntent;
 import android.appwidget.AppWidgetManager;
 import android.appwidget.AppWidgetProvider;
+import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -11,8 +12,21 @@ import org.json.JSONObject;
 
 public class PackingWidgetProvider extends AppWidgetProvider {
 
+    public static void refreshAll(Context context) {
+        AppWidgetManager mgr = AppWidgetManager.getInstance(context);
+        ComponentName cn = new ComponentName(context, PackingWidgetProvider.class);
+        int[] ids = mgr.getAppWidgetIds(cn);
+        if (ids.length > 0) {
+            updateWidgets(context, mgr, ids);
+        }
+    }
+
     @Override
     public void onUpdate(Context context, AppWidgetManager mgr, int[] appWidgetIds) {
+        updateWidgets(context, mgr, appWidgetIds);
+    }
+
+    static void updateWidgets(Context context, AppWidgetManager mgr, int[] appWidgetIds) {
         SharedPreferences prefs = context.getSharedPreferences("giw_widget", Context.MODE_PRIVATE);
         String raw = prefs.getString("data", "{}");
         String name = "Get In Water";
@@ -22,10 +36,20 @@ public class PackingWidgetProvider extends AppWidgetProvider {
             name = obj.optString("name", name);
             int remaining = obj.optInt("remaining", -1);
             int total = obj.optInt("total", 0);
-            if (remaining >= 0 && total > 0) {
-                detail = remaining == 0 ? "All packed!" : remaining + " item" + (remaining == 1 ? "" : "s") + " left";
-            } else if (remaining == 0) {
-                detail = "All packed!";
+            int done = obj.optInt("done", 0);
+            String mode = obj.optString("mode", "pack");
+            if (total > 0 && remaining >= 0) {
+                if (remaining == 0) {
+                    detail = "return".equals(mode) ? "All collected!" : "All packed!";
+                } else {
+                    String verb = "return".equals(mode) ? "collected" : "packed";
+                    detail = done + "/" + total + " " + verb + " · " + remaining + " left";
+                }
+            } else if (remaining < 0) {
+                detail = "Pin a trip in the app";
+                if ("Get In Water".equals(name) || name.isEmpty()) {
+                    name = "Get In Water";
+                }
             }
         } catch (Exception ignored) {}
 
