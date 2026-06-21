@@ -9,7 +9,7 @@ Free open-source diving software by [Three Cats LSP](https://threecats-lsp.com).
 ## Apps
 
 ### [LSP D-Planner](https://threecats-lsp.com/d-planner/) — Open-Circuit Deco Planner
-> [GitHub](https://github.com/Three-Cats-LSP/LSP_D-planner) · v2.20.21
+> [GitHub](https://github.com/Three-Cats-LSP/LSP_D-planner)
 
 Decompression planning for recreational and technical open-circuit divers.
 
@@ -19,7 +19,7 @@ Decompression planning for recreational and technical open-circuit divers.
 ---
 
 ### [LSP D-Planner + CCR](https://threecats-lsp.com/d-planner-ccr/) — Rebreather Deco Planner
-> [GitHub](https://github.com/Three-Cats-LSP/LSP_D-planner-CCR) · v2.30.30 ★ Safety Sign-Off
+> [GitHub](https://github.com/Three-Cats-LSP/LSP_D-planner-CCR) · [Safety Sign-Off](https://github.com/Three-Cats-LSP/LSP_D-planner-CCR/blob/main/SAFETY_CERTIFICATION_v2.30.30.md)
 
 Decompression planning for CCR, pSCR, and bailout diving. Separate product from the OC line; maintained independently.
 
