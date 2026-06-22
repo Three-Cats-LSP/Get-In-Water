@@ -42,6 +42,9 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+      - name: Run audit checks
+        run: npm run test:audit
+
       - name: Generate Android launcher icons
         run: |
           sudo apt-get install -y --no-install-recommends imagemagick
@@ -72,16 +75,7 @@ jobs:
           done
 
       - name: Prepare www folder
-        run: |
-          mkdir -p www
-          cp index.html www/
-          cp manifest.json www/
-          cp capacitor-bridge.js www/
-          cp sw.js www/
-          cp icon-192v2.png www/icon-192.png
-          cp icon-512v2.png www/icon-512.png
-          cp icon-192-light.png www/icon-192-light.png
-          cp icon-512-light.png www/icon-512-light.png
+        run: npm run prepare:www
 
       - name: Capacitor sync
         run: npx cap sync android
