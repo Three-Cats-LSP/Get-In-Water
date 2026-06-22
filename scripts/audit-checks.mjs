@@ -1,8 +1,12 @@
 #!/usr/bin/env node
-/** Lightweight checks for backup sanitization (audit follow-up). */
+/** Lightweight checks for backup sanitization and service worker (audit follow-up). */
 import { createRequire } from 'module';
 import assert from 'assert';
+import fs from 'fs';
+import path from 'path';
+import { fileURLToPath } from 'url';
 
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const require = createRequire(import.meta.url);
 const { sanitizeImportedBackup, cleanText } = require('../backup-sanitize.js');
 
@@ -61,6 +65,20 @@ test('sanitizes item names with HTML', () => {
     }
   }, makeId);
   assert.ok(!out.masterTemplate.items[0].name.includes('<'));
+});
+
+const swSource = fs.readFileSync(path.join(__dirname, '..', 'sw.js'), 'utf8');
+test('sw.js registers install, activate, and fetch handlers', () => {
+  assert.match(swSource, /addEventListener\(\s*['"]install['"]/);
+  assert.match(swSource, /addEventListener\(\s*['"]activate['"]/);
+  assert.match(swSource, /addEventListener\(\s*['"]fetch['"]/);
+  assert.match(swSource, /skipWaiting/);
+  assert.match(swSource, /clients\.claim/);
+});
+
+test('sw.js precaches vendored PDF assets', () => {
+  assert.match(swSource, /vendor\/jspdf\.umd\.min\.js/);
+  assert.match(swSource, /vendor\/fonts\/DejaVuSans\.ttf/);
 });
 
 console.log(`\n${n} checks passed`);
