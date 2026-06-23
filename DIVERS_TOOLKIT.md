@@ -8,31 +8,22 @@ Free open-source diving software by [Three Cats LSP](https://threecats-lsp.com).
 
 ## Apps
 
-### [LSP D-Planner](https://threecats-lsp.com/d-planner/) — Open-Circuit Deco Planner
-> [GitHub](https://github.com/Three-Cats-LSP/LSP_D-planner)
+### [LSP D-Planner+](https://threecats-lsp.com/d-planner-plus/) — Unified Deco Planner (OC + CCR)
+> [GitHub](https://github.com/Three-Cats-LSP/LSP_D-planner-plus) · v2.50.00
 
-Decompression planning for recreational and technical open-circuit divers.
+Decompression planning for recreational and technical divers — open-circuit and rebreather in one app.
 
 **Algorithms:** Bühlmann ZHL-16C + GF · VPM-B · VPM-B/GFS · PADI RDP  
-**Features:** Trimix · travel gas · altitude · repetitive dives · gas consumption · emergency contingency · PDF/TXT/slate export · Android app
-
----
-
-### [LSP D-Planner + CCR](https://threecats-lsp.com/d-planner-ccr/) — Rebreather Deco Planner
-> [GitHub](https://github.com/Three-Cats-LSP/LSP_D-planner-CCR) · [Safety Sign-Off](https://github.com/Three-Cats-LSP/LSP_D-planner-CCR/blob/main/SAFETY_CERTIFICATION_v2.30.30.md)
-
-Decompression planning for CCR, pSCR, and bailout diving. Separate product from the OC line; maintained independently.
-
-**Algorithms:** Bühlmann ZHL-16C + GF · VPM-B · VPM-B/GFS — all with full CCR/pSCR paths  
-**CCR features:** Phase-aware setpoints (descent/bottom/deco) · diluent-aware tissue loading · pSCR loop depletion model · bailout OC planning · configurable bailout GF · stress/problem-solve gas reserve  
-**Verified:** 85 audit findings closed · 383/383 static checks passing · [Safety certification](https://github.com/Three-Cats-LSP/LSP_D-planner-CCR/blob/main/SAFETY_CERTIFICATION_v2.30.30.md)
+**OC features:** Trimix · travel gas · altitude · repetitive dives · gas consumption · emergency contingency  
+**CCR features:** CCR · pSCR · phase-aware setpoints · bailout OC planning · diluent-aware tissue loading · pSCR loop depletion  
+**Engine:** Tier 2/3 ZHL isolation (Web Worker + shared bundle) · offline PWA · PDF/TXT/slate export · Android app (**LSP+**)
 
 ---
 
 ### [T-Viewer](https://threecats-lsp.com/t-viewer/) — Dive Plan Viewer
-> Hosted only (no separate repo)
+> [GitHub](https://github.com/Three-Cats-LSP/T-Viewer)
 
-Open and display TXT and PDF exports from LSP D-Planner or LSP D-Planner + CCR. Share plans with your buddy or surface support before the dive.
+Open and display TXT and PDF exports from LSP D-Planner+. Share plans with your buddy or surface support before the dive.
 
 ---
 
@@ -47,11 +38,21 @@ Maintain a master gear list, create per-trip packing checklists, and export TXT 
 
 | From | To | Reason |
 |------|----|--------|
-| LSP D-Planner | [LSP D-Planner + CCR](https://threecats-lsp.com/d-planner-ccr/) | Rebreather divers who need CCR/pSCR planning |
-| LSP D-Planner + CCR | [LSP D-Planner](https://threecats-lsp.com/d-planner/) | OC-only divers or for OC reference comparison |
-| LSP D-Planner (both) | [T-Viewer](https://threecats-lsp.com/t-viewer/) | Share and view exported plans |
-| LSP D-Planner (both) | [Get In Water](https://threecats-lsp.com/get-in-water/) | After planning the dive, pack for it |
-| Get In Water | [LSP D-Planner](https://threecats-lsp.com/d-planner/) | After packing, plan the dive |
+| LSP D-Planner+ | [T-Viewer](https://threecats-lsp.com/t-viewer/) | Share and view exported plans |
+| LSP D-Planner+ | [Get In Water](https://threecats-lsp.com/get-in-water/) | After planning the dive, pack for it |
+| Get In Water | [LSP D-Planner+](https://threecats-lsp.com/d-planner-plus/) | After packing, plan the dive |
+| T-Viewer | [LSP D-Planner+](https://threecats-lsp.com/d-planner-plus/) | Export plans from the planner |
+
+---
+
+## Legacy editions (archived)
+
+| App | URL | Status |
+|-----|-----|--------|
+| LSP D-Planner (OC) | https://threecats-lsp.com/d-planner/ | Frozen at v2.40.02-final |
+| LSP D-Planner + CCR | https://threecats-lsp.com/d-planner-ccr/ | Frozen at v2.30.31-final |
+
+Development continues in **LSP D-Planner+** only.
 
 ---
 
@@ -71,8 +72,8 @@ All apps are MIT licensed and open source.
 
 | App | Repository |
 |-----|-----------|
-| LSP D-Planner | https://github.com/Three-Cats-LSP/LSP_D-planner |
-| LSP D-Planner + CCR | https://github.com/Three-Cats-LSP/LSP_D-planner-CCR |
+| LSP D-Planner+ | https://github.com/Three-Cats-LSP/LSP_D-planner-plus |
+| T-Viewer | https://github.com/Three-Cats-LSP/T-Viewer |
 | Get In Water | https://github.com/Three-Cats-LSP/Get-In-Water |
 | Organization | https://github.com/Three-Cats-LSP |
 
