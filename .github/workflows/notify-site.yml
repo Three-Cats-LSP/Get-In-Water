@@ -6,6 +6,8 @@ on:
     paths:
       - 'index.html'
       - 'sw.js'
+      - 'sync.js'
+      - 'firebase-config.js'
       - 'backup-sanitize.js'
       - 'vendor/**'
       - 'capacitor-bridge.js'
