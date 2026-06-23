@@ -94,6 +94,12 @@ jobs:
       - name: Make Gradle wrapper executable
         run: chmod +x android/gradlew
 
+      - name: Print debug SHA-1 for Firebase
+        working-directory: android
+        run: |
+          echo "Add this SHA-1 in Firebase → Project settings → Android app → Add fingerprint:"
+          ./gradlew signingReport --no-daemon 2>/dev/null | grep -A1 "Variant: debug" | grep SHA1 || true
+
       - name: Build debug APK
         working-directory: android
         env:
