@@ -98,7 +98,11 @@ jobs:
         working-directory: android
         run: |
           echo "Add this SHA-1 in Firebase → Project settings → Android app → Add fingerprint:"
-          ./gradlew signingReport --no-daemon 2>/dev/null | grep -A1 "Variant: debug" | grep SHA1 || true
+          ./gradlew :app:signingReport --no-daemon 2>&1 | tee /tmp/signing-report.txt
+          echo "---"
+          awk '/Variant: debug/,/Variant: release/ { if ($0 ~ /SHA1/) print $0 }' /tmp/signing-report.txt | head -1
+          echo "(If empty above, copy any SHA1 line from the report for Config: debug)"
+          grep "SHA1" /tmp/signing-report.txt | head -3 || true
 
       - name: Build debug APK
         working-directory: android
