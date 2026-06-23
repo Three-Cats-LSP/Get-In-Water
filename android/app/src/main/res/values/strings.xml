@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='utf-8'?>
 <resources>
-    <string name="app_name">Get In Water</string>
-    <string name="title_activity_main">Get In Water</string>
+    <string name="app_name">GiW</string>
+    <string name="title_activity_main">GiW</string>
     <string name="widget_name">Packing progress</string>
     <string name="widget_description">Shows remaining items for your pinned trip</string>
     <string name="package_name">com.threecats.lsp.getinwater</string>

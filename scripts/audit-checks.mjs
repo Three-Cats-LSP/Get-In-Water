@@ -81,4 +81,15 @@ test('sw.js precaches vendored PDF assets', () => {
   assert.match(swSource, /vendor\/fonts\/DejaVuSans\.ttf/);
 });
 
+test('sw.js precaches Firebase sync assets', () => {
+  assert.match(swSource, /firebase-config\.js/);
+  assert.match(swSource, /sync\.js/);
+  assert.match(swSource, /vendor\/firebase\/firebase-firestore-compat\.js/);
+});
+
+test('sw.js bypasses cache for Firebase hosts', () => {
+  assert.match(swSource, /firebaseapp\.com/);
+  assert.match(swSource, /googleapis\.com/);
+});
+
 console.log(`\n${n} checks passed`);
