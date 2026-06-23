@@ -98,18 +98,22 @@ jobs:
         env:
           ANDROID_DEBUG_KEYSTORE: ${{ secrets.ANDROID_DEBUG_KEYSTORE }}
         run: |
-          mkdir -p "$HOME/.config/.android"
-          KEYSTORE="$HOME/.config/.android/debug.keystore"
+          mkdir -p "$HOME/.android" "$HOME/.config/.android"
+          KEYSTORE_CONFIG="$HOME/.config/.android/debug.keystore"
+          KEYSTORE_ANDROID="$HOME/.android/debug.keystore"
           if [ -n "$ANDROID_DEBUG_KEYSTORE" ]; then
-            echo "$ANDROID_DEBUG_KEYSTORE" | base64 -d > "$KEYSTORE"
+            echo "$ANDROID_DEBUG_KEYSTORE" | base64 -d > "$KEYSTORE_CONFIG"
+            cp "$KEYSTORE_CONFIG" "$KEYSTORE_ANDROID"
             echo "Restored debug keystore from ANDROID_DEBUG_KEYSTORE secret"
-          elif [ ! -f "$KEYSTORE" ]; then
-            keytool -genkey -v -keystore "$KEYSTORE" \
+          elif [ ! -f "$KEYSTORE_CONFIG" ]; then
+            keytool -genkey -v -keystore "$KEYSTORE_CONFIG" \
               -alias androiddebugkey -keyalg RSA -keysize 2048 -validity 10000 \
               -storepass android -keypass android \
               -dname "CN=Android Debug,O=Android,C=US"
+            cp "$KEYSTORE_CONFIG" "$KEYSTORE_ANDROID"
             echo "Generated new debug keystore (save as ANDROID_DEBUG_KEYSTORE secret to keep SHA-1 stable)"
           fi
+          echo "KEYSTORE_PATH=$KEYSTORE_CONFIG" >> "$GITHUB_ENV"
 
       - name: Build debug APK
         working-directory: android
@@ -122,15 +126,20 @@ jobs:
         run: |
           echo "=== Copy this SHA1 line into Firebase → Project settings → Android app → Add fingerprint ==="
           ./gradlew :app:signingReport --no-daemon 2>&1 | tee /tmp/signing-report.txt
-          grep "SHA1" /tmp/signing-report.txt | head -1 || true
+          SHA1_LINE=$(grep "SHA1" /tmp/signing-report.txt | head -1 || true)
+          if [ -n "$SHA1_LINE" ]; then
+            echo "$SHA1_LINE"
+          else
+            echo "SHA1 not found in signing report — check /tmp/signing-report.txt in logs above"
+          fi
 
       - name: Upload debug keystore artifact
         uses: actions/upload-artifact@v4
         with:
           name: android-debug-keystore
-          path: ${{ env.HOME }}/.config/.android/debug.keystore
+          path: ${{ env.KEYSTORE_PATH }}
           retention-days: 7
-          if-no-files-found: ignore
+          if-no-files-found: warn
 
       - name: Locate APK
         id: find_apk
