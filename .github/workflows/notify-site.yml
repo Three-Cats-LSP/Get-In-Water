@@ -7,7 +7,7 @@ on:
       - 'index.html'
       - 'sw.js'
       - 'sync.js'
-      - 'firebase-config.js'
+      - 'firebase-config.example.js'
       - 'backup-sanitize.js'
       - 'vendor/**'
       - 'capacitor-bridge.js'

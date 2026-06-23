@@ -4,7 +4,8 @@
   "description": "Get In Water — dive trip packing checklist for Three Cats LSP",
   "private": true,
   "scripts": {
-    "prepare:www": "node scripts/prepare-www.js",
+    "write:firebase-config": "node scripts/write-firebase-config.js",
+    "prepare:www": "node scripts/write-firebase-config.js && node scripts/prepare-www.js",
     "cap:sync": "npm run prepare:www && npx cap sync android",
     "cap:open": "npx cap open android",
     "test:audit": "node scripts/audit-checks.mjs"

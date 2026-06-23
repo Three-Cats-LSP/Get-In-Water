@@ -40,11 +40,22 @@ const webFiles = [
   'manifest.json',
   'capacitor-bridge.js',
   'backup-sanitize.js',
-  'firebase-config.js',
   'sync.js',
   'sw.js'
 ];
 webFiles.forEach(f => copy(path.join(root, f), path.join(www, f)));
+
+const firebaseConfig = path.join(root, 'firebase-config.js');
+const firebaseExample = path.join(root, 'firebase-config.example.js');
+if (fs.existsSync(firebaseConfig)) {
+  copy(firebaseConfig, path.join(www, 'firebase-config.js'));
+} else if (fs.existsSync(firebaseExample)) {
+  console.warn('firebase-config.js missing; copying example (sync disabled)');
+  copy(firebaseExample, path.join(www, 'firebase-config.js'));
+} else {
+  console.error('Missing firebase-config.js and firebase-config.example.js');
+  process.exit(1);
+}
 
 const iconMap = [
   ['icon-512v2.png', 'icon-512.png'],
