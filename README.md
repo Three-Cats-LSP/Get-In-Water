@@ -88,8 +88,9 @@ Optional Google sign-in uses [Firebase](https://firebase.google.com) (Auth + Fir
 2. Create Firestore and deploy [`firestore.rules`](firestore.rules)
 3. Copy web config into [`firebase-config.js`](firebase-config.js)
 4. Add Android app → `google-services.json` in `android/app/` (not committed)
-5. Register SHA-1 fingerprints for debug/release keystores
-6. For CI APK builds: GitHub secret `GOOGLE_SERVICES_JSON` (base64 of `google-services.json`)
+5. Ensure `android/variables.gradle` has `rgcfaIncludeGoogle = true` (required for Google Sign-In in APK)
+6. Register SHA-1 fingerprints for debug/release keystores
+7. For CI APK builds: GitHub secret `GOOGLE_SERVICES_JSON` (base64 of `google-services.json`)
 
 **Manual test checklist**
 
