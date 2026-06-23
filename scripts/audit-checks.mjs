@@ -74,6 +74,8 @@ test('sw.js registers install, activate, and fetch handlers', () => {
   assert.match(swSource, /addEventListener\(\s*['"]fetch['"]/);
   assert.match(swSource, /skipWaiting/);
   assert.match(swSource, /clients\.claim/);
+  assert.match(swSource, /e\.waitUntil/);
+  assert.ok(swSource.split('\n').length > 40, 'sw.js should include full worker implementation');
 });
 
 test('sw.js precaches vendored PDF assets', () => {
