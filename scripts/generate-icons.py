@@ -45,7 +45,7 @@ def crop_left_cat(im: Image.Image) -> Image.Image:
 
 def render_icon(cat: Image.Image, size: int, bg: tuple[int, int, int]) -> Image.Image:
     canvas = Image.new("RGBA", (size, size), bg + (255,))
-    inset = int(size * 0.08)
+    inset = int(size * 0.115)  # ~8% smaller cat vs prior 8% inset — balanced padding
     inner = size - inset * 2
     scaled = cat.resize((inner, inner), Image.LANCZOS)
     canvas.paste(scaled, (inset, inset), scaled)
