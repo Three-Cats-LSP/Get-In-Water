@@ -154,23 +154,14 @@ jobs:
           APK=$(find android/app/build/outputs/apk/debug -name "*.apk" | head -1)
           echo "apk_path=$APK" >> $GITHUB_OUTPUT
 
-      - name: Commit APK to repo
+      - name: Publish APK to GitHub Release
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          git config user.name  "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
-          mkdir -p "Android Apk"
-          cp "${{ steps.find_apk.outputs.apk_path }}" "Android Apk/Get-In-Water.apk"
-          git add "Android Apk/Get-In-Water.apk"
-          git diff --cached --quiet && echo "No APK changes" && exit 0
-          git commit -m "build: update Get-In-Water.apk [skip ci]"
-          git reset --hard HEAD
-          git pull --rebase origin main
-          git push
-
-      - name: Notify homepage to sync
-        run: |
-          curl -X POST \
-            -H "Authorization: token ${{ secrets.SYNC_TOKEN }}" \
-            -H "Accept: application/vnd.github.v3+json" \
-            https://api.github.com/repos/Three-Cats-LSP/threecats-lsp.com/dispatches \
-            -d '{"event_type":"sync-get-in-water"}'
+          cp "${{ steps.find_apk.outputs.apk_path }}" /tmp/Get-In-Water.apk
+          gh release view latest >/dev/null 2>&1 || \
+            gh release create latest \
+              --title "Latest Android APK" \
+              --notes "Debug APK built by CI. Download: https://threecats-lsp.com/get-in-water/download.html" \
+              --latest
+          gh release upload latest /tmp/Get-In-Water.apk --clobber
