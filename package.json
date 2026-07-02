@@ -5,6 +5,7 @@
   "private": true,
   "scripts": {
     "write:firebase-config": "node scripts/write-firebase-config.js",
+    "icons": "python scripts/generate-icons.py",
     "prepare:www": "node scripts/write-firebase-config.js && node scripts/prepare-www.js",
     "cap:sync": "npm run prepare:www && npx cap sync android",
     "cap:open": "npx cap open android",

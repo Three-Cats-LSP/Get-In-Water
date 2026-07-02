@@ -9,6 +9,10 @@ on:
       - 'sync.js'
       - 'firebase-config.example.js'
       - 'backup-sanitize.js'
+      - 'icon-192.png'
+      - 'icon-512.png'
+      - 'icon-192-light.png'
+      - 'icon-512-light.png'
       - 'vendor/**'
       - 'capacitor-bridge.js'
 
