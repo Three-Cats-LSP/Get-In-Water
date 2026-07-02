@@ -27,15 +27,21 @@ def remove_near_white(im: Image.Image, tolerance: int = 28) -> Image.Image:
 
 def crop_left_cat(im: Image.Image) -> Image.Image:
     w, h = im.size
-    left = int(w * 0.02)
-    right = int(w * 0.318)
-    top = int(h * 0.06)
-    bottom = int(h * 0.94)
+    left = int(w * 0.015)
+    right = int(w * 0.328)
+    top = int(h * 0.05)
+    bottom = int(h * 0.95)
     cropped = im.crop((left, top, right, bottom))
     cropped = remove_near_white(cropped)
     bbox = cropped.getbbox()
     if bbox:
-        cropped = cropped.crop(bbox)
+        y0, y1 = bbox[1], bbox[3]
+        pad_y = max(4, int((y1 - y0) * 0.05))
+        y0 = max(0, y0 - pad_y)
+        y1 = min(cropped.height, y1 + pad_y)
+        # Keep full horizontal crop — bbox x-trim was clipping the cat when the
+        # middle cat's outline bled into the right edge of this region.
+        cropped = cropped.crop((0, y0, cropped.width, y1))
     cw, ch = cropped.size
     side = max(cw, ch)
     square = Image.new("RGBA", (side, side), (255, 255, 255, 0))
@@ -45,7 +51,7 @@ def crop_left_cat(im: Image.Image) -> Image.Image:
 
 def render_icon(cat: Image.Image, size: int, bg: tuple[int, int, int]) -> Image.Image:
     canvas = Image.new("RGBA", (size, size), bg + (255,))
-    inset = int(size * 0.115)  # ~8% smaller cat vs prior 8% inset — balanced padding
+    inset = int(size * 0.13)
     inner = size - inset * 2
     scaled = cat.resize((inner, inner), Image.LANCZOS)
     canvas.paste(scaled, (inset, inset), scaled)
