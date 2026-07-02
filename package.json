@@ -1,6 +1,6 @@
 {
   "name": "get-in-water",
-  "version": "1.4.4",
+  "version": "1.4.5",
   "description": "Get In Water — dive trip packing checklist for Three Cats LSP",
   "private": true,
   "scripts": {
