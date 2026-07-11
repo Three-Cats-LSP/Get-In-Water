@@ -165,3 +165,16 @@ jobs:
               --notes "Debug APK built by CI. Download: https://threecats-lsp.com/get-in-water/download.html" \
               --latest
           gh release upload latest /tmp/Get-In-Water.apk --clobber
+
+      - name: Commit APK for direct download page
+        run: |
+          cp /tmp/Get-In-Water.apk "Android Apk/Get-In-Water.apk"
+          if git diff --quiet -- "Android Apk/Get-In-Water.apk"; then
+            echo "Committed APK already matches build output"
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add "Android Apk/Get-In-Water.apk"
+          git commit -m "Update Android APK [skip ci]"
+          git push
