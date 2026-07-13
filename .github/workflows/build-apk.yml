@@ -66,7 +66,7 @@ jobs:
       - name: Generate Android launcher icons
         run: |
           sudo apt-get install -y --no-install-recommends imagemagick
-          # Use ImageMagick to resize icon-512v2.png
+          # Use the same icon advertised by manifest.json for launcher assets.
           # into all required mipmap densities for ic_launcher and ic_launcher_foreground.
           # Foreground uses the full icon; background color is set via values/ic_launcher_background.xml.
           declare -A sizes=(
@@ -87,9 +87,9 @@ jobs:
             dir="android/app/src/main/res/mipmap-${density}"
             sz=${sizes[$density]}
             fgsz=${fg_sizes[$density]}
-            convert icon-512v2.png -resize "${sz}x${sz}" "${dir}/ic_launcher.png"
-            convert icon-512v2.png -resize "${sz}x${sz}" "${dir}/ic_launcher_round.png"
-            convert icon-512v2.png -resize "${fgsz}x${fgsz}" "${dir}/ic_launcher_foreground.png"
+            convert icon-512.png -resize "${sz}x${sz}" "${dir}/ic_launcher.png"
+            convert icon-512.png -resize "${sz}x${sz}" "${dir}/ic_launcher_round.png"
+            convert icon-512.png -resize "${fgsz}x${fgsz}" "${dir}/ic_launcher_foreground.png"
           done
 
       - name: Prepare www folder
