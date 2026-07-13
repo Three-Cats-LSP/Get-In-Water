@@ -15,6 +15,11 @@
     "FirebaseAuthentication": {
       "skipNativeAuth": false,
       "providers": ["google.com"]
+    },
+    "StatusBar": {
+      "style": "DARK",
+      "backgroundColor": "#030c18",
+      "overlaysWebView": false
     }
   }
 }
