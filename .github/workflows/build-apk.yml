@@ -66,9 +66,9 @@ jobs:
       - name: Generate Android launcher icons
         run: |
           sudo apt-get install -y --no-install-recommends imagemagick
-          # Use the same icon advertised by manifest.json for launcher assets.
-          # into all required mipmap densities for ic_launcher and ic_launcher_foreground.
-          # Foreground uses the full icon; background color is set via values/ic_launcher_background.xml.
+          # Legacy launcher PNGs use the same square icon advertised by manifest.json.
+          # Adaptive launcher foregrounds must be transparent and padded, otherwise
+          # Android masks/zooms the full square PWA icon into a broken-looking APK icon.
           declare -A sizes=(
             [mdpi]=48
             [hdpi]=72
@@ -87,9 +87,14 @@ jobs:
             dir="android/app/src/main/res/mipmap-${density}"
             sz=${sizes[$density]}
             fgsz=${fg_sizes[$density]}
+            fgcontent=$((fgsz * 52 / 100))
             convert icon-512.png -resize "${sz}x${sz}" "${dir}/ic_launcher.png"
             convert icon-512.png -resize "${sz}x${sz}" "${dir}/ic_launcher_round.png"
-            convert icon-512.png -resize "${fgsz}x${fgsz}" "${dir}/ic_launcher_foreground.png"
+            convert icon-512.png \
+              -fuzz 4% -transparent '#030c18' \
+              -resize "${fgcontent}x${fgcontent}" \
+              -background none -gravity center -extent "${fgsz}x${fgsz}" \
+              "${dir}/ic_launcher_foreground.png"
           done
 
       - name: Prepare www folder
